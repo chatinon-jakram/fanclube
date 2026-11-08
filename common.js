@@ -1,4 +1,4 @@
-
+ 
 async function loadSharedLayout() {
 
   const header = document.getElementById('site-header');
