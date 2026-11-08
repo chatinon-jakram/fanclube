@@ -19,24 +19,23 @@
         <a href="index.html" class="nav-item">หน้าแรก</a>
 
        <!-- MESSAGE DROPDOWN -->
+        <div class="relative group py-4">
+          <a href="#" class="nav-item inline-flex items-center gap-2">
+            ข้อความฝาก
+            <span class="text-xs">⌄</span>
+          </a>
 
-<div class="relative group">
-  <a href="#"
-     class="nav-link">
-    ข้อความฝาก
-  </a>
-
-  <div class="absolute left-0 top-full pt-3 hidden group-hover:block z-50">
-    <div class="w-64 bg-[#fbfaf5] border border-[#e8e8dd] shadow-lg rounded-sm py-2">
-
-      <a href="messages_m2-69.html"
-         class="block px-5 py-3 text-sm text-[#778173] hover:bg-[#f3e5e8] hover:text-[#52694d] transition">
-        ถึงน้อง ๆ ระดับชั้น ม.2 ปี 2569
-      </a>
-
-    </div>
-  </div>
-</div>
+          <div class="absolute right-0 top-full w-64 bg-[#fffefa] shadow-xl border border-[#e8e8dd] invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition duration-200">
+       
+             <a href="messages_m2-69.html"
+                class="block px-5 py-3 text-sm text-[#778173] hover:bg-[#f3e5e8] hover:text-[#52694d] transition">
+              <span class="block text-sm text-[#52694d]">ถึงน้อง ๆ ม.2 ปี 2569</span>
+              <span class="block text-[10px] text-[#a1a58e] mt-1">To M2 2569</span>
+             </a>
+       
+           </div>
+         </div>
+       </div>
 
 
        
@@ -161,15 +160,25 @@
  
 <div class="mobile-menu-group">
 
+ <!-- เมนู ข้อความฝาก -->
+     <div class="border-t border-[#e5e6dc] mt-7 pt-6">
+
+      <p class="section-label mb-4">FORM CHATINON JAKRAM</p>
   <button
     type="button"
     id="messagesToggle"
     class="drawer-link w-full flex items-center justify-between">
-    ข้อความฝาก
-    <span id="messagesArrow">⌄</span>
+           <span class="flex items-center gap-3">
+          <span>✧</span>
+          ข้อความฝาก
+        </span>
+
+        <span id="aboutArrow" class="transition-transform duration-300">⌄</span>
   </button>
 
-  <div id="messagesSubmenu" class="hidden pl-5 pb-2">
+  <div id="messagesSubmenu" 
+   class="hidden pl-7 border-l border-[#d5a99a] ml-2 mt-2 space-y-1">
+   
 
     <a href="messages_m2-69.html"
        class="drawer-sub-link block">
