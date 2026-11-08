@@ -335,88 +335,293 @@
     </div>
   </div>
 
-    <!-- ACTIVITIES -->
-  <div class="mt-24">
 
-    <p class="section-label">06 — ACTIVITIES & EXPERIENCES</p>
+<!-- ACTIVITIES -->
+<div class="mt-24">
 
-    <h3 class="page-title text-3xl mt-4">
-      ประวัติการเข้าร่วมกิจกรรม
-    </h3>
+  <p class="section-label">06 — ACTIVITIES & EXPERIENCES</p>
 
-    <p class="text-sm text-[#778173] leading-8 mt-5">
-      รวบรวมกิจกรรม ประสบการณ์ การเข้าร่วมโครงการ
-      ค่าย การแข่งขัน และกิจกรรมต่าง ๆ ที่เคยเข้าร่วม
-      ทั้งภายในและภายนอกสถานศึกษา
-    </p>
+  <h3 class="page-title text-3xl mt-4">
+    ประวัติการเข้าร่วมกิจกรรม
+  </h3>
 
-    <div class="mt-8 space-y-5">
+  <p class="text-sm text-[#778173] leading-8 mt-5">
+    รวบรวมกิจกรรม ประสบการณ์ การเข้าร่วมโครงการ
+    ค่าย การแข่งขัน และกิจกรรมต่าง ๆ ที่เคยเข้าร่วม
+    ทั้งภายในและภายนอกสถานศึกษา
+  </p>
 
-      <!-- เพิ่มกิจกรรมได้โดยคัดลอกกล่องนี้ -->
-      <div class="border border-[#e8e8dd] p-6">
-        <p class="text-xs tracking-widest text-[#a1a58e]">
-          YEAR / DATE
-        </p>
-        <h4 class="text-base text-[#52694d] mt-3">
-          [ชื่อกิจกรรม]
-        </h4>
-        <p class="text-sm text-[#778173] leading-7 mt-3">
-          [รายละเอียดกิจกรรมและบทบาทที่เข้าร่วม]
-        </p>
-      </div>
-
-    </div>
+  <div id="activitiesList" class="mt-8 space-y-5">
+    <p class="text-sm text-[#a1a58e]">กำลังโหลดข้อมูลกิจกรรม...</p>
   </div>
 
+</div>
 
-  <!-- ACHIEVEMENTS -->
-  <div class="mt-24">
 
-    <p class="section-label">07 — ACHIEVEMENTS & CERTIFICATES</p>
+<!-- ACHIEVEMENTS -->
+<div class="mt-24">
 
-    <h3 class="page-title text-3xl mt-4">
-      ประวัติผลงานและเกียรติบัตร
-    </h3>
+  <p class="section-label">07 — ACHIEVEMENTS & CERTIFICATES</p>
 
-    <p class="text-sm text-[#778173] leading-8 mt-5">
-      รวบรวมรางวัล ผลงาน และเกียรติบัตร
-      ที่ได้รับจากการเข้าร่วมกิจกรรมและการแข่งขันต่าง ๆ
-    </p>
+  <h3 class="page-title text-3xl mt-4">
+    ประวัติผลงานและเกียรติบัตร
+  </h3>
 
-    <div class="grid sm:grid-cols-2 gap-6 mt-10">
+  <p class="text-sm text-[#778173] leading-8 mt-5">
+    รวบรวมรางวัล ผลงาน และเกียรติบัตร
+    ที่ได้รับจากการเข้าร่วมกิจกรรมและการแข่งขันต่าง ๆ
+  </p>
 
-      <!-- เกียรติบัตรที่ 1 -->
-      <div>
-        <img
-          src="certificate-01.png"
-          alt="เกียรติบัตรที่ 1"
-          class="w-full aspect-[4/3] object-contain bg-[#f4f1e9]">
-
-        <p class="text-sm text-[#52694d] mt-4">
-          [ชื่อรางวัลหรือเกียรติบัตร]
-        </p>
-        <p class="text-xs text-[#a1a58e] mt-2">
-          [วันที่ / ปีที่ได้รับ]
-        </p>
-      </div>
-
-      <!-- เกียรติบัตรที่ 2 -->
-      <div>
-        <img
-          src="certificate-02.png"
-          alt="เกียรติบัตรที่ 2"
-          class="w-full aspect-[4/3] object-contain bg-[#f4f1e9]">
-
-        <p class="text-sm text-[#52694d] mt-4">
-          [ชื่อรางวัลหรือเกียรติบัตร]
-        </p>
-        <p class="text-xs text-[#a1a58e] mt-2">
-          [วันที่ / ปีที่ได้รับ]
-        </p>
-      </div>
-
-    </div>
+  <div id="achievementsList"
+       class="grid sm:grid-cols-2 gap-6 mt-10">
+    <p class="text-sm text-[#a1a58e]">กำลังโหลดข้อมูลผลงาน...</p>
   </div>
+
+</div>
+
+
+<!-- TXT DATA LOADER -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // อ่านข้อมูลจากไฟล์ TXT
+  async function loadTextFile(filename) {
+    const response = await fetch(filename);
+
+    if (!response.ok) {
+      throw new Error("ไม่สามารถโหลดไฟล์ " + filename);
+    }
+
+    return await response.text();
+  }
+
+
+  // แปลงข้อความ TXT เป็นรายการข้อมูล
+  function parseTextData(text) {
+
+    return text
+      .split(/\r?\n\s*---\s*\r?\n/)
+      .map(block => {
+
+        const item = {};
+
+        block.split(/\r?\n/).forEach(line => {
+
+          const separator = line.indexOf(":");
+
+          if (separator === -1) return;
+
+          const key = line.slice(0, separator).trim();
+          const value = line.slice(separator + 1).trim();
+
+          if (key) {
+            item[key] = value;
+          }
+
+        });
+
+        return item;
+
+      })
+      .filter(item => item.TITLE);
+
+  }
+
+
+  // สร้าง element พร้อมข้อความอย่างปลอดภัย
+  function createTextElement(tag, className, value) {
+
+    const element = document.createElement(tag);
+
+    element.className = className;
+    element.textContent = value || "";
+
+    return element;
+
+  }
+
+
+  // แสดงรายการกิจกรรม
+  async function renderActivities() {
+
+    const container = document.getElementById("activitiesList");
+
+    try {
+
+      const text = await loadTextFile("activities.txt");
+      const activities = parseTextData(text);
+
+      container.replaceChildren();
+
+      if (activities.length === 0) {
+        container.textContent = "ยังไม่มีข้อมูลกิจกรรม";
+        return;
+      }
+
+      activities.forEach(item => {
+
+        const card = document.createElement("div");
+        card.className = "border border-[#e8e8dd] p-6";
+
+        const date = createTextElement(
+          "p",
+          "text-xs tracking-widest text-[#a1a58e]",
+          [item.YEAR, item.DATE].filter(Boolean).join(" / ")
+        );
+
+        const title = createTextElement(
+          "h4",
+          "text-base text-[#52694d] mt-3",
+          item.TITLE
+        );
+
+        const description = createTextElement(
+          "p",
+          "text-sm text-[#778173] leading-7 mt-3",
+          item.DESCRIPTION
+        );
+
+        card.append(date, title, description);
+
+        if (item.ROLE) {
+          const role = createTextElement(
+            "p",
+            "text-xs text-[#a1a58e] mt-4",
+            "บทบาท: " + item.ROLE
+          );
+
+          card.append(role);
+        }
+
+        if (item.PLACE) {
+          const place = createTextElement(
+            "p",
+            "text-xs text-[#a1a58e] mt-2",
+            "สถานที่: " + item.PLACE
+          );
+
+          card.append(place);
+        }
+
+        container.append(card);
+
+      });
+
+    } catch (error) {
+
+      console.error(error);
+      container.textContent =
+        "ไม่สามารถโหลดข้อมูลกิจกรรมได้ กรุณาตรวจสอบไฟล์ activities.txt";
+
+    }
+
+  }
+
+
+  // แสดงรายการผลงานและเกียรติบัตร
+  async function renderAchievements() {
+
+    const container = document.getElementById("achievementsList");
+
+    try {
+
+      const text = await loadTextFile("achievements.txt");
+      const achievements = parseTextData(text);
+
+      container.replaceChildren();
+
+      if (achievements.length === 0) {
+        container.textContent = "ยังไม่มีข้อมูลผลงานและเกียรติบัตร";
+        return;
+      }
+
+      achievements.forEach(item => {
+
+        const card = document.createElement("div");
+        card.className = "min-w-0";
+
+        // รูปเกียรติบัตร
+        if (item.IMAGE) {
+
+          const image = document.createElement("img");
+
+          image.src = item.IMAGE;
+          image.alt = item.TITLE || "ผลงานและเกียรติบัตร";
+          image.loading = "lazy";
+
+          image.className =
+            "w-full aspect-[4/3] object-contain bg-[#f4f1e9]";
+
+          card.append(image);
+
+        }
+
+        // ชื่อผลงาน
+        const title = createTextElement(
+          "p",
+          "text-sm text-[#52694d] mt-4",
+          item.TITLE
+        );
+
+        card.append(title);
+
+        // วันที่และปี
+        const date = createTextElement(
+          "p",
+          "text-xs text-[#a1a58e] mt-2",
+          [item.DATE, item.YEAR].filter(Boolean).join(" / ")
+        );
+
+        card.append(date);
+
+        // รายละเอียด
+        if (item.DESCRIPTION) {
+
+          const description = createTextElement(
+            "p",
+            "text-sm text-[#778173] leading-7 mt-3",
+            item.DESCRIPTION
+          );
+
+          card.append(description);
+
+        }
+
+        // ประเภท
+        if (item.TYPE) {
+
+          const type = createTextElement(
+            "p",
+            "text-xs text-[#a1a58e] mt-3",
+            item.TYPE
+          );
+
+          card.append(type);
+
+        }
+
+        container.append(card);
+
+      });
+
+    } catch (error) {
+
+      console.error(error);
+      container.textContent =
+        "ไม่สามารถโหลดข้อมูลผลงานได้ กรุณาตรวจสอบไฟล์ achievements.txt";
+
+    }
+
+  }
+
+
+  // โหลดข้อมูลทั้งสองส่วน
+  renderActivities();
+  renderAchievements();
+
+});
+</script>
+
 
 
   <!-- CLOSING -->
