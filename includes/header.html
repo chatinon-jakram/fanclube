@@ -1,81 +1,200 @@
-<header class="site-header">
-  <div class="nav-container">
 
-    <a href="index.html" class="brand">
-      <span class="brand-name">Sweet Peas.</span>
-      <span class="brand-subtitle">CHATINON JAKRAM FANCLUB</span>
-    </a>
+<header class="site-header sticky top-0 z-50 bg-[#f7f6ef]/95 backdrop-blur-md border-b border-[#e8e8dd]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="min-h-[82px] flex items-center justify-between gap-4">
 
-    <!-- เมนูสำหรับคอมพิวเตอร์ -->
-    <nav class="desktop-nav">
-      <a href="index.html">หน้าแรก</a>
-      <a href="messages.html">ข้อความฝาก</a> 
-      <a href="feelings.html">ส่งความรู้สึก</a>
-
-      <div class="desktop-dropdown">
-        <a href="#" class="dropdown-main">เกี่ยวกับเรา <span>⌄</span></a>
-
-        <div class="desktop-dropdown-menu">
-          <a href="about-group.html">ประวัติของแก๊งค์</a>
-          <a href="about-chatinon.html">ประวัติของชตินนท์ จากรัมย์</a>
+      <!-- BRAND -->
+      <a href="index.html" class="block shrink-0">
+        <div class="serif text-[29px] text-[#52694d] leading-none">
+          Sweet Peas<span class="text-[#d5a99a]">.</span>
         </div>
-      </div>
+        <div class="sans text-[9px] tracking-[3px] text-[#969b86] mt-2">
+          CHATINON JAKRAM FANCLUB
+        </div>
+      </a>
 
-      <a href="openchat.html">LINE OpenChat</a>
-    </nav>
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="hidden lg:flex items-center gap-7 text-[13px] text-[#657361]">
 
-    <a href="openchat.html" class="nav-join">JOIN OUR COMMUNITY</a>
+        <a href="index.html" class="nav-item">หน้าแรก</a>
+        <a href="messages.html" class="nav-item">ข้อความฝาก</a>
+        <a href="feelings.html" class="nav-item">ส่งความรู้สึก</a>
+        <a href="openchat.html" class="nav-item">LINE OpenChat</a>
 
-    <!-- ปุ่มเปิดเมนูโทรศัพท์ -->
-    <button class="mobile-menu-button" id="openMenu" aria-label="เปิดเมนู">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+        <!-- ABOUT DROPDOWN -->
+        <div class="relative group py-4">
+          <a href="#" class="nav-item inline-flex items-center gap-2">
+            เกี่ยวกับเรา
+            <span class="text-xs">⌄</span>
+          </a>
 
+          <div class="absolute right-0 top-full w-64 bg-[#fffefa] shadow-xl border border-[#e8e8dd] invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition duration-200">
+
+            <a href="group-history.html"
+               class="block px-6 py-4 hover:bg-[#edeee4] transition">
+              <span class="block text-sm text-[#52694d]">ประวัติของแก๊งค์</span>
+              <span class="block text-[10px] text-[#a1a58e] mt-1">OUR STORY</span>
+            </a>
+
+            <div class="h-px bg-[#e8e8dd]"></div>
+
+            <a href="chatinon-history.html"
+               class="block px-6 py-4 hover:bg-[#edeee4] transition">
+              <span class="block text-sm text-[#52694d]">ประวัติของชตินนท์ จากรัมย์</span>
+              <span class="block text-[10px] text-[#a1a58e] mt-1">ABOUT CHATINON</span>
+            </a>
+
+          </div>
+        </div>
+
+      </nav>
+
+      <!-- DESKTOP BUTTON -->
+      <a href="openchat.html"
+         class="hidden lg:inline-flex bg-[#52694d] text-white px-5 py-3 text-xs hover:bg-[#394c36] transition">
+        JOIN OUR COMMUNITY ↗
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button
+        id="mobileMenuButton"
+        type="button"
+        aria-label="เปิดเมนู"
+        aria-expanded="false"
+        aria-controls="mobileDrawer"
+        class="lg:hidden w-11 h-11 flex items-center justify-center border border-[#dce1d3] text-[#52694d] hover:bg-[#edeee4] transition">
+
+        <svg id="menuIcon" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M3 7h18M3 12h18M3 17h18"/>
+        </svg>
+      </button>
+
+    </div>
   </div>
 </header>
 
-<!-- พื้นหลังตอนเปิดเมนู -->
-<div class="drawer-overlay" id="drawerOverlay"></div>
 
-<!-- เมนูด้านข้าง -->
-<aside class="mobile-drawer" id="mobileDrawer">
+<!-- BACKDROP -->
+<div id="drawerBackdrop"
+     class="fixed inset-0 bg-[#1d2c20]/50 z-[60] opacity-0 invisible transition-opacity duration-300">
+</div>
 
-  <div class="drawer-top">
-    <div>
-      <div class="drawer-brand">Sweet Peas.</div>
-      <div class="drawer-subtitle">CHATINON JAKRAM FANCLUB</div>
-    </div>
 
-    <button class="drawer-close" id="closeMenu" aria-label="ปิดเมนู">
-      &times;
-    </button>
-  </div>
+<!-- MOBILE SIDE DRAWER -->
+<aside id="mobileDrawer"
+  class="fixed top-0 right-0 h-full w-[min(85vw,360px)] bg-[#f7f6ef] z-[70] translate-x-full transition-transform duration-300 ease-out overflow-y-auto shadow-2xl">
 
-  <div class="drawer-links">
-    <a href="index.html">หน้าแรก</a>
-    <a href="messages.html">ข้อความฝาก</a>
-    <a href="feelings.html">ส่งความรู้สึก</a>
+  <!-- DRAWER HEADER -->
+  <div class="px-6 pt-7 pb-6 border-b border-[#e8e8dd]">
 
-    <div class="drawer-about">
-      <div class="drawer-about-heading">
-        <a href="#">เกี่ยวกับเรา</a>
-        <button id="aboutToggle" aria-label="เปิดเมนูย่อย">＋</button>
+    <div class="flex justify-between items-start">
+
+      <div>
+        <div class="serif text-3xl text-[#52694d]">
+          Sweet Peas<span class="text-[#d5a99a]">.</span>
+        </div>
+
+        <p class="sans text-[9px] tracking-[3px] text-[#969b86] mt-2">
+          CHATINON JAKRAM FANCLUB
+        </p>
       </div>
 
-      <div class="drawer-submenu" id="aboutSubmenu">
-        <a href="about-group.html">ประวัติของแก๊งค์</a>
-        <a href="about-chatinon.html">ประวัติของชตินนท์ จากรัมย์</a>
-      </div>
+      <button id="closeMobileMenu"
+        type="button"
+        aria-label="ปิดเมนู"
+        class="w-9 h-9 border border-[#dce1d3] text-[#52694d] flex items-center justify-center">
+        ✕
+      </button>
+
     </div>
 
-    <a href="openchat.html">LINE OpenChat</a>
+    <p class="text-xs text-[#929988] mt-7">
+      A little place of happiness ♡
+    </p>
+
   </div>
 
-  <div class="drawer-bottom">
-    <span>A little community for lovely people.</span>
-    <a href="openchat.html">JOIN OUR COMMUNITY ↗</a>
+
+  <!-- DRAWER LINKS -->
+  <nav class="px-6 py-5">
+
+    <p class="section-label mb-5">MAIN MENU</p>
+
+    <div class="space-y-1">
+
+      <a href="index.html" class="drawer-link">
+        <span>⌂</span> หน้าแรก
+      </a>
+
+      <a href="messages.html" class="drawer-link">
+        <span>✉</span> ข้อความฝาก
+      </a>
+
+      <a href="feelings.html" class="drawer-link">
+        <span>♡</span> ส่งความรู้สึก
+      </a>
+
+      <a href="openchat.html" class="drawer-link">
+        <span>☘</span> LINE OpenChat
+      </a>
+
+    </div>
+
+
+    <!-- ABOUT MENU -->
+    <div class="border-t border-[#e5e6dc] mt-7 pt-6">
+
+      <p class="section-label mb-4">ABOUT US</p>
+
+      <button id="aboutToggle"
+        type="button"
+        aria-expanded="false"
+        class="w-full flex items-center justify-between py-3 text-sm text-[#52694d]">
+
+        <span class="flex items-center gap-3">
+          <span>✧</span>
+          เกี่ยวกับเรา
+        </span>
+
+        <span id="aboutArrow" class="transition-transform duration-300">⌄</span>
+
+      </button>
+
+      <div id="aboutSubmenu"
+        class="hidden pl-7 border-l border-[#d5a99a] ml-2 mt-2 space-y-1">
+
+        <a href="group-history.html" class="drawer-sub-link">
+          ประวัติของแก๊งค์
+        </a>
+
+        <a href="chatinon-history.html" class="drawer-sub-link">
+          ประวัติของชตินนท์ จากรัมย์
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- JOIN -->
+    <div class="mt-9">
+      <a href="openchat.html"
+         class="block text-center bg-[#52694d] text-white py-4 text-sm hover:bg-[#394c36] transition">
+        JOIN OUR COMMUNITY ↗
+      </a>
+    </div>
+
+  </nav>
+
+
+  <!-- DRAWER FOOTER -->
+  <div class="px-6 py-7 mt-5 border-t border-[#e5e6dc]">
+    <p class="serif italic text-2xl text-[#c99e8e]">
+      Stay lovely.
+    </p>
+    <p class="sans text-[9px] tracking-[2px] text-[#a1a58e] mt-3">
+      SWEET PEAS · CHATINON JAKRAM
+    </p>
   </div>
 
 </aside>
