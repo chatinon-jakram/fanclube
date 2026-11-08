@@ -91,30 +91,26 @@ function initializeMobileMenu() {
     link.addEventListener('click', closeMenu);
   });
 
+ 
+const messagesToggle = document.getElementById('messagesToggle');
+const messagesSubmenu = document.getElementById('messagesSubmenu');
+const messagesArrow = document.getElementById('messagesArrow');
+
+if (messagesToggle && messagesSubmenu) {
+  messagesToggle.addEventListener('click', () => {
+    messagesSubmenu.classList.toggle('hidden');
+
+    if (messagesArrow) {
+      messagesArrow.textContent =
+        messagesSubmenu.classList.contains('hidden') ? '⌄' : '⌃';
+    }
+  });
 }
 
-  // FORMCHATINONJAKRAM SUBMENU
-  chatinonToggle.addEventListener('click', () => {
-
-    const isOpen = chatinonToggle.getAttribute('aria-expanded') === 'true';
-
-    chatinonToggle.setAttribute('aria-expanded', String(!isOpen));
-
-    chatinonSubmenu.classList.toggle('hidden', isOpen);
-
-   chatinonArrow.style.transform = isOpen
-      ? 'rotate(0deg)'
-      : 'rotate(180deg)';
-
-  });
-
-
-  // Close drawer after selecting a page
-  drawer.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
 
 }
+
+
 
 
 document.addEventListener('DOMContentLoaded', loadSharedLayout);
