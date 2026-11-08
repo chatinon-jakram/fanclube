@@ -399,3 +399,15 @@ body {
 body.drawer-open {
   overflow: hidden;
 }
+
+/* สีข้อความตอนลากเมาส์คลุม */
+::selection {
+    background-color: #E8B8C8; /* Dusty Pink */
+    color: #526B58;            /* Sage Green */
+}
+
+/* รองรับ Firefox */
+::-moz-selection {
+    background-color: #E8B8C8;
+    color: #526B58;
+}
