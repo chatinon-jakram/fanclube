@@ -1,2 +1,559 @@
 
-กกกกกก
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6ef">
+
+  <title>Sweet Peas — A Little Place of Happiness</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Kanit', sans-serif;
+      background: #f7f6ef;
+      color: #354536;
+    }
+
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .sans {
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .hero-image {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(34, 51, 37, .67),
+          rgba(34, 51, 37, .12)
+        ),
+        url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=2000')
+        center 48% / cover;
+    }
+
+    .nav-item {
+      position: relative;
+      transition: .25s;
+    }
+
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      background: #637b59;
+      bottom: -6px;
+      left: 0;
+      transition: .3s;
+    }
+
+    .nav-item:hover::after {
+      width: 100%;
+    }
+
+    .feature-card {
+      transition: .35s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 45px rgba(54, 72, 51, .09);
+    }
+
+    .image-hover img {
+      transition: transform .7s ease;
+    }
+
+    .image-hover:hover img {
+      transform: scale(1.06);
+    }
+
+    .circle-decoration {
+      border: 1px solid rgba(255,255,255,.5);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="bg-[#536b4d] text-white text-center py-2 px-4">
+  <p class="sans text-[10px] tracking-[2px]">
+    WELCOME TO SWEET PEAS COMMUNITY ♡
+  </p>
+</div>
+
+
+<!-- NAVIGATION -->
+<header class="bg-[#f7f6ef]/95 backdrop-blur-md sticky top-0 z-50 border-b border-[#e8e8dd]">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="h-[82px] flex items-center justify-between">
+
+      <!-- BRAND -->
+      <a href="index.html" class="block">
+        <div class="serif text-[29px] text-[#52694d] leading-none">
+          Sweet Peas<span class="text-[#d5a99a]">.</span>
+        </div>
+
+        <div class="sans text-[9px] tracking-[3px] text-[#969b86] mt-2">
+          BY CHATINON JAKRAM
+        </div>
+      </a>
+
+
+      <!-- MENU -->
+      <nav class="hidden lg:flex items-center gap-9 text-[13px] text-[#657361]">
+
+        <a href="index.html" class="nav-item text-[#354536]">
+          หน้าแรก
+        </a>
+
+        <a href="messages.html" class="nav-item">
+          ข้อความฝาก
+        </a>
+
+        <a href="feelings.html" class="nav-item">
+          ส่งความรู้สึก
+        </a>
+
+        <a href="openchat.html" class="nav-item">
+          LINE OpenChat
+        </a>
+
+      </nav>
+
+
+      <!-- JOIN BUTTON -->
+      <a href="openchat.html"
+         class="hidden sm:inline-flex items-center gap-3 bg-[#52694d] text-white px-6 py-3 text-xs hover:bg-[#394c36] transition">
+
+        <span class="sans tracking-wider">JOIN OUR COMMUNITY</span>
+        <span>↗</span>
+
+      </a>
+
+    </div>
+
+  </div>
+</header>
+
+
+<!-- HERO SECTION -->
+<main>
+
+<section class="hero-image min-h-[590px] lg:min-h-[690px] flex items-center relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto w-full px-7 lg:px-16 py-24">
+
+    <div class="max-w-2xl text-white">
+
+      <div class="sans text-[11px] tracking-[5px] mb-8 text-white/80">
+        A LITTLE PLACE OF HAPPINESS
+      </div>
+
+      <h1 class="serif text-[68px] sm:text-[90px] lg:text-[115px] leading-[.95]">
+        Sweet
+        <br>
+        <i class="text-[#eed3c5]">Peas.</i>
+      </h1>
+
+      <div class="w-16 h-[1px] bg-[#eed3c5] mt-10 mb-7"></div>
+
+      <p class="text-sm sm:text-base leading-8 text-white/85 max-w-md font-light">
+        ยินดีต้อนรับสู่พื้นที่เล็ก ๆ ที่เต็มไปด้วยความรู้สึกดี ๆ
+        เรื่องราวน่าจดจำ และรอยยิ้มจากทุกคน
+      </p>
+
+      <div class="flex flex-wrap gap-4 mt-10">
+
+        <a href="messages.html"
+           class="bg-[#f7f6ef] text-[#52694d] px-8 py-4 text-sm hover:bg-[#e9c9bb] transition">
+
+          Explore our world ↗
+
+        </a>
+
+        <a href="openchat.html"
+           class="circle-decoration px-8 py-4 text-sm text-white hover:bg-white/15 transition">
+
+          Join the community
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- DECORATION -->
+  <div class="absolute bottom-8 right-10 hidden md:block text-white/70">
+
+    <div class="sans text-[10px] tracking-[3px] [writing-mode:vertical-rl]">
+      GOOD PEOPLE · GOOD MEMORIES · GOOD FEELINGS
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+<section class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+
+  <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+    <div>
+
+      <div class="sans text-[10px] tracking-[4px] text-[#a1a58e]">
+        THE STORY OF SWEET PEAS
+      </div>
+
+      <h2 class="serif text-5xl lg:text-6xl leading-tight mt-6 text-[#52694d]">
+        A community
+        <br>
+        made with
+        <i class="text-[#c99e8e]">love.</i>
+      </h2>
+
+      <p class="mt-8 text-sm leading-8 text-[#7b8475] max-w-lg">
+        Sweet Peas คือพื้นที่สำหรับน้อง ๆ และผู้คนที่อยากแบ่งปัน
+        ความรู้สึกดี ๆ ให้แก่กัน ไม่ว่าจะเป็นข้อความเล็ก ๆ
+        คำพูดที่อยากฝาก หรือเรื่องราวที่อยากเล่า
+      </p>
+
+      <p class="mt-4 text-sm leading-8 text-[#7b8475] max-w-lg">
+        เพราะเราเชื่อว่า ความสุขบางครั้งก็เริ่มต้นจากสิ่งเล็ก ๆ
+        และการได้พบเจอผู้คนที่ทำให้วันธรรมดากลายเป็นวันที่พิเศษ
+      </p>
+
+      <a href="messages.html"
+         class="inline-flex items-center gap-4 mt-9 text-sm text-[#52694d] border-b border-[#9ba68d] pb-2">
+
+        Discover our messages
+        <span>↗</span>
+
+      </a>
+
+    </div>
+
+
+    <!-- IMAGE -->
+    <div class="relative">
+
+      <div class="image-hover overflow-hidden aspect-[4/5] max-h-[520px]">
+
+        <img
+          src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=1000"
+          alt="Beautiful flower arrangement"
+          class="w-full h-full object-cover"
+        >
+
+      </div>
+
+      <div class="absolute -bottom-7 -left-5 bg-[#e8e8d9] p-7 sm:p-9 max-w-[230px]">
+
+        <div class="serif italic text-3xl text-[#52694d]">
+          Stay lovely.
+        </div>
+
+        <p class="text-xs text-[#85907b] mt-3 leading-6">
+          A little reminder from Sweet Peas.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="bg-[#edeee4] py-24 lg:py-32">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="text-center mb-16">
+
+      <div class="sans text-[10px] tracking-[4px] text-[#9ba38e]">
+        EXPLORE SWEET PEAS
+      </div>
+
+      <h2 class="serif text-4xl sm:text-5xl text-[#52694d] mt-5">
+        A little something for you.
+      </h2>
+
+      <p class="text-sm text-[#929988] mt-5">
+        เลือกพื้นที่ที่คุณอยากเข้าไปทำความรู้จัก
+      </p>
+
+    </div>
+
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+      <!-- CARD 1 -->
+      <a href="messages.html"
+         class="feature-card bg-[#fbfaf5] group block">
+
+        <div class="image-hover overflow-hidden h-[230px]">
+
+          <img
+            src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800"
+            alt="Writing letters"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+        <div class="p-8">
+
+          <div class="sans text-[10px] tracking-[3px] text-[#a1a58e]">
+            01 — MESSAGES
+          </div>
+
+          <h3 class="serif text-3xl text-[#52694d] mt-4">
+            Little Notes.
+          </h3>
+
+          <p class="text-xs leading-7 text-[#929988] mt-4">
+            อ่านข้อความฝาก คำพูด และความปรารถนาดี
+            ที่อยากแบ่งปันให้ทุกคน
+          </p>
+
+          <div class="flex justify-between items-center mt-8 border-t border-[#e9e9df] pt-5">
+
+            <span class="text-xs text-[#52694d]">
+              อ่านข้อความฝาก
+            </span>
+
+            <span class="text-[#52694d] group-hover:translate-x-2 transition">
+              ↗
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <!-- CARD 2 -->
+      <a href="feelings.html"
+         class="feature-card bg-[#fbfaf5] group block">
+
+        <div class="image-hover overflow-hidden h-[230px]">
+
+          <img
+            src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=800"
+            alt="Notebook and stationery"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+        <div class="p-8">
+
+          <div class="sans text-[10px] tracking-[3px] text-[#a1a58e]">
+            02 — YOUR FEELINGS
+          </div>
+
+          <h3 class="serif text-3xl text-[#52694d] mt-4">
+            Dear You.
+          </h3>
+
+          <p class="text-xs leading-7 text-[#929988] mt-4">
+            มีอะไรอยากบอกหรืออยากแบ่งปัน
+            เข้ามาเขียนความรู้สึกของคุณได้ที่นี่
+          </p>
+
+          <div class="flex justify-between items-center mt-8 border-t border-[#e9e9df] pt-5">
+
+            <span class="text-xs text-[#52694d]">
+              ส่งข้อความความรู้สึก
+            </span>
+
+            <span class="text-[#52694d] group-hover:translate-x-2 transition">
+              ↗
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <!-- CARD 3 -->
+      <a href="openchat.html"
+         class="feature-card bg-[#fbfaf5] group block">
+
+        <div class="image-hover overflow-hidden h-[230px]">
+
+          <img
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800"
+            alt="Friends together"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+        <div class="p-8">
+
+          <div class="sans text-[10px] tracking-[3px] text-[#a1a58e]">
+            03 — OUR COMMUNITY
+          </div>
+
+          <h3 class="serif text-3xl text-[#52694d] mt-4">
+            Together.
+          </h3>
+
+          <p class="text-xs leading-7 text-[#929988] mt-4">
+            พบกับห้องพูดคุยต่าง ๆ ของ Sweet Peas
+            ผ่าน LINE OpenChat
+          </p>
+
+          <div class="flex justify-between items-center mt-8 border-t border-[#e9e9df] pt-5">
+
+            <span class="text-xs text-[#52694d]">
+              ดูห้อง OpenChat
+            </span>
+
+            <span class="text-[#52694d] group-hover:translate-x-2 transition">
+              ↗
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- QUOTE -->
+<section class="py-28 lg:py-36 px-6 text-center">
+
+  <div class="sans text-[10px] tracking-[4px] text-[#a3a78f]">
+    A NOTE TO REMEMBER
+  </div>
+
+  <h2 class="serif italic text-4xl sm:text-6xl lg:text-7xl text-[#52694d] mt-9 leading-tight">
+    "Small things,<br>
+    beautiful memories."
+  </h2>
+
+  <div class="w-12 h-[1px] bg-[#d4a99b] mx-auto mt-10"></div>
+
+  <p class="text-sm text-[#8b9581] mt-7">
+    ด้วยความปรารถนาดีจาก Chatinon Jakram ♡
+  </p>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="bg-[#344535] text-[#f7f6ef]">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <div>
+
+        <div class="serif text-4xl">
+          Sweet Peas.
+        </div>
+
+        <p class="sans text-[10px] tracking-[3px] text-white/45 mt-4">
+          BY CHATINON JAKRAM
+        </p>
+
+        <p class="text-xs text-white/60 mt-7 leading-7 max-w-sm">
+          A little community for lovely people.
+          Made with kindness, memories and happiness.
+        </p>
+
+      </div>
+
+
+      <div class="md:text-right">
+
+        <div class="sans text-[10px] tracking-[3px] text-white/45 mb-6">
+          EXPLORE
+        </div>
+
+        <div class="flex flex-col md:items-end gap-4 text-sm text-white/80">
+
+          <a href="index.html" class="hover:text-[#e8c5b9]">
+            หน้าแรก
+          </a>
+
+          <a href="messages.html" class="hover:text-[#e8c5b9]">
+            ข้อความฝาก
+          </a>
+
+          <a href="feelings.html" class="hover:text-[#e8c5b9]">
+            ส่งข้อความความรู้สึก
+          </a>
+
+          <a href="openchat.html" class="hover:text-[#e8c5b9]">
+            LINE OpenChat
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="border-t border-white/15 mt-14 pt-7 flex flex-col sm:flex-row justify-between gap-4">
+
+      <p class="sans text-[10px] tracking-wider text-white/40">
+        © 2026 SWEET PEAS. ALL RIGHTS RESERVED.
+      </p>
+
+      <p class="serif italic text-sm text-[#d9b6a9]">
+        Stay lovely, always.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
