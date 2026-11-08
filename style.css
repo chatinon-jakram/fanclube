@@ -357,3 +357,45 @@ body {
     padding: 15px 6%;
   }
 }
+
+
+/* MOBILE DRAWER */
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 12px;
+  color: #52694d;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.drawer-link:hover {
+  background: #edeee4;
+  padding-left: 18px;
+}
+
+.drawer-link span {
+  font-size: 19px;
+  color: #c99e8e;
+  width: 20px;
+  text-align: center;
+}
+
+.drawer-sub-link {
+  display: block;
+  padding: 12px 10px;
+  font-size: 13px;
+  color: #78836f;
+  transition: .2s;
+}
+
+.drawer-sub-link:hover {
+  color: #52694d;
+  background: #edeee4;
+}
+
+body.drawer-open {
+  overflow: hidden;
+}
